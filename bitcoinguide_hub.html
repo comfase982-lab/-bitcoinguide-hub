@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BitcoinGuide Hub</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f7f8fa;color:#17202a;line-height:1.6}
+header{background:#111827;color:#fff;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}.logo{font-size:23px;font-weight:800}
+nav a{color:#fff;text-decoration:none;margin-left:16px;font-size:14px}
+.hero{padding:80px 7%;background:#fff;text-align:center}.hero h1{font-size:44px;margin:0 0 12px}.hero p{max-width:680px;margin:0 auto 25px;color:#5d6875;font-size:18px}
+.btn{display:inline-block;background:#f59e0b;color:#111827;text-decoration:none;font-weight:700;padding:12px 21px;border-radius:8px;border:0}
+section{padding:60px 7%;max-width:1100px;margin:auto}h2{text-align:center;font-size:31px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 5px 18px #11182712}.card h3{margin-top:0}
+.calc{max-width:520px;margin:auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 18px #11182712}.calc input{width:100%;padding:12px;margin:8px 0 15px;border:1px solid #ccd3dc;border-radius:7px}.result{font-size:20px;font-weight:700;margin-top:12px}
+.note{background:#fff7e6;padding:18px;border-left:4px solid #f59e0b;border-radius:6px}
+.about{background:#eef2f7;max-width:none}.about-inner{max-width:1100px;margin:auto}
+.contact{background:#111827;color:#fff;max-width:none;text-align:center}.contact a{color:#fff}.contact p{color:#d7dde6}
+footer{background:#0b1220;color:#c8d0dc;text-align:center;padding:20px;font-size:13px}
+@media(max-width:700px){header{display:block;text-align:center}nav{margin-top:9px}nav a{margin:0 6px}.hero h1{font-size:35px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">₿ BitcoinGuide Hub</div>
+<nav><a href="#learn">Learn</a><a href="#tools">Tools</a><a href="#guides">Guides</a><a href="#contact">Contact</a></nav>
+</header>
+
+<section class="hero">
+<h1>Learn Bitcoin with confidence.</h1>
+<p>Simple Bitcoin education, practical tools and security guidance for beginners.</p>
+<a class="btn" href="#learn">Start Learning</a>
+</section>
+
+<section id="learn">
+<h2>Learn Bitcoin</h2>
+<div class="grid">
+<div class="card"><h3>What is Bitcoin?</h3><p>Understand Bitcoin, blockchain technology, wallets and transactions.</p></div>
+<div class="card"><h3>How Wallets Work</h3><p>Learn about custodial and self-custody wallets and why backup phrases matter.</p></div>
+<div class="card"><h3>Stay Safe</h3><p>Learn to recognize phishing, fake investment offers and requests for your recovery phrase.</p></div>
+</div>
+</section>
+
+<section id="tools">
+<h2>Bitcoin Calculator</h2>
+<div class="calc">
+<label>BTC amount</label>
+<input id="btc" type="number" min="0" step="any" placeholder="e.g. 0.01">
+<label>BTC price in USD</label>
+<input id="price" type="number" min="0" step="any" placeholder="e.g. 60000">
+<button class="btn" onclick="calculate()">Calculate</button>
+<div class="result" id="result">Enter values above.</div>
+</div>
+</section>
+
+<section>
+<h2>Security First</h2>
+<div class="note"><strong>Important:</strong> Never send your recovery phrase, private key, password or verification code to another person. Be cautious of websites promising guaranteed returns or asking you to deposit money to unlock profits.</div>
+</section>
+
+<section id="guides">
+<h2>Digital Guides</h2>
+<div class="grid">
+<div class="card"><h3>Beginner Bitcoin Guide</h3><p>A simple guide explaining Bitcoin concepts in plain language.</p><p><strong>Coming soon</strong></p></div>
+<div class="card"><h3>Wallet Safety Checklist</h3><p>A practical checklist for safer wallet and account habits.</p><p><strong>Coming soon</strong></p></div>
+<div class="card"><h3>Bitcoin Basics Course</h3><p>Short lessons designed for people new to Bitcoin.</p><p><strong>Coming soon</strong></p></div>
+</div>
+</section>
+
+<section class="about">
+<div class="about-inner"><h2>About BitcoinGuide Hub</h2><p>BitcoinGuide Hub makes Bitcoin easier to understand through educational information and simple tools. We do not promise guaranteed investment returns.</p></div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2><p>For questions, partnerships or guide inquiries:</p>
+<p><strong>Email:</strong> <a href="mailto:your@email.com">your@email.com</a></p>
+<a class="btn" href="mailto:your@email.com?subject=BitcoinGuide%20Hub%20Inquiry">Contact Us</a>
+</section>
+
+<footer>© 2026 BitcoinGuide Hub. Educational information only; not financial advice.</footer>
+
+<script>
+function calculate(){
+  const btc=Number(document.getElementById('btc').value);
+  const price=Number(document.getElementById('price').value);
+  document.getElementById('result').textContent =
+    btc>=0 && price>=0 && (btc||price)
+    ? 'Estimated value: $'+(btc*price).toLocaleString(undefined,{maximumFractionDigits:2})
+    : 'Please enter valid values.';
+}
+</script>
+</body>
+</html>
